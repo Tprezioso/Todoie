@@ -12,10 +12,9 @@ class ToDoListViewController: UITableViewController {
 
     let itemArray = ["egg" ,"cookie", "cheese"]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
     
     // MARK - Tableview Datascorce Methods
@@ -31,5 +30,6 @@ class ToDoListViewController: UITableViewController {
         
         return cell
     }
+
 }
 
