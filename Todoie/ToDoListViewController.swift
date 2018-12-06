@@ -55,7 +55,7 @@ class ToDoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New Todoie Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            // what will happen when the user clicks add item
+            // What will happen when the user clicks add item
             if textField.text != "" {
                 self.itemArray.append(textField.text!)
                 self.tableView.reloadData()
