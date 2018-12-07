@@ -12,9 +12,14 @@ class ToDoListViewController: UITableViewController {
 
     var itemArray = ["egg" ,"cookie", "cheese"]
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let items = defaults.array(forKey: "todoListArray") as? [String] {
+            itemArray = items
+        }
     }
     
     // MARK - Tableview Datascorce Methods
@@ -58,6 +63,7 @@ class ToDoListViewController: UITableViewController {
             // What will happen when the user clicks add item
             if textField.text != "" {
                 self.itemArray.append(textField.text!)
+                self.defaults.set(self.itemArray, forKey: "todoListArray")
                 self.tableView.reloadData()
             }
         }
