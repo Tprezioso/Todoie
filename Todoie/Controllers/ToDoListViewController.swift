@@ -13,6 +13,12 @@ class ToDoListViewController: UITableViewController {
 
     var itemArray = [Item]()
 
+    var selectedCategory : Category? {
+        didSet {
+            loadItems()
+        }
+    }
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
@@ -20,7 +26,6 @@ class ToDoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadItems()
     }
     
     // MARK - Tableview Datascorce Methods
@@ -70,6 +75,7 @@ class ToDoListViewController: UITableViewController {
                 let newItem = Item(context: self.context)
                 newItem.title = textField.text!
                 newItem.done = false
+                newItem.parentCategory = self.selectedCategory
                 
                 self.itemArray.append(newItem)
                 
@@ -99,9 +105,16 @@ class ToDoListViewController: UITableViewController {
 
     }
     
-    // LoadItems method has a internal (with) and External (request) params with default (Item.fetchRequest()) params
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+    // LoadItems method has a internal (with) and External (request) params with default (Item.fetchRequest()) params NSPredicate for optional search
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate:NSPredicate? = nil) {
 
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
         
         do {
             itemArray = try context.fetch(request)
@@ -121,11 +134,11 @@ extension ToDoListViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request : NSFetchRequest<Item> = Item.fetchRequest()
         
-        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        loadItems(with: request)
+        loadItems(with: request, predicate: predicate)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
