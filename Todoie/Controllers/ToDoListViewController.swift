@@ -139,6 +139,7 @@ extension ToDoListViewController : UISearchBarDelegate {
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
         loadItems(with: request, predicate: predicate)
+        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -147,6 +148,7 @@ extension ToDoListViewController : UISearchBarDelegate {
            
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
+                self.tableView.reloadData()
             }
         }
     }
