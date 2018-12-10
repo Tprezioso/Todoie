@@ -1,0 +1,6 @@
+framework module Pods_Todoie {
+  umbrella header "Pods-Todoie-umbrella.h"
+
+  export *
+  module * { export * }
+}
