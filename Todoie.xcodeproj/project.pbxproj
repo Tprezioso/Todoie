@@ -14,6 +14,7 @@
 		9F0ECA1F21B886D40090DB78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F0ECA1D21B886D40090DB78 /* LaunchScreen.storyboard */; };
 		9F0ECA2E21BC77BA0090DB78 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F0ECA2C21BC77BA0090DB78 /* DataModel.xcdatamodeld */; };
 		9F0ECA5121BDA8FA0090DB78 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0ECA5021BDA8FA0090DB78 /* CategoryTableViewController.swift */; };
+		9F2427BD21BF182E00D3D378 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2427BC21BF182E00D3D378 /* Data.swift */; };
 		ACF91A9DAF68EF72E4B5F9A7 /* Pods_Todoie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65A0208F1DA8D71A728FFBE /* Pods_Todoie.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		9F0ECA2021B886D40090DB78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F0ECA2D21BC77BA0090DB78 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9F0ECA5021BDA8FA0090DB78 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		9F2427BC21BF182E00D3D378 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B65A0208F1DA8D71A728FFBE /* Pods_Todoie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 		9F0ECA2821BB24ED0090DB78 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F2427BC21BF182E00D3D378 /* Data.swift */,
 				9F0ECA2C21BC77BA0090DB78 /* DataModel.xcdatamodeld */,
 			);
 			path = "Data Model";
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F0ECA1721B886D20090DB78 /* ToDoListViewController.swift in Sources */,
+				9F2427BD21BF182E00D3D378 /* Data.swift in Sources */,
 				9F0ECA2E21BC77BA0090DB78 /* DataModel.xcdatamodeld in Sources */,
 				9F0ECA1521B886D20090DB78 /* AppDelegate.swift in Sources */,
 				9F0ECA5121BDA8FA0090DB78 /* CategoryTableViewController.swift in Sources */,
@@ -393,7 +397,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6JBM5ZNF6C;
 				INFOPLIST_FILE = Todoie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tom.Todoie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -409,7 +416,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6JBM5ZNF6C;
 				INFOPLIST_FILE = Todoie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tom.Todoie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
