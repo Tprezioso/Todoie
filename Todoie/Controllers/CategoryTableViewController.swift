@@ -74,9 +74,19 @@ class CategoryTableViewController: UITableViewController {
         
         alert.addAction(action)
         
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true) {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+            alert.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+
+        }
         
     }
+
+    // Used for dismissing alert view when tap outside alert popup
+    @objc func dismissAlertController(){
+        self.dismiss(animated: true, completion: nil)
+    }
+
 
     // MARK: - Data Manipulation
     func saveCategories(category: Category) {

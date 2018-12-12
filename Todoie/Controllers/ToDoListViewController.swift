@@ -80,8 +80,7 @@ class ToDoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New Todoie Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            // What will happen when the user clicks add item
-            
+            if textField.text != "" {
                 // saving with realm
                 if let currentCategory = self.selectedCategory {
                     do {
@@ -95,7 +94,10 @@ class ToDoListViewController: UITableViewController {
                         print("Error in saving new items \(error)")
                     }
                 }
-                self.tableView.reloadData()
+
+            }
+            
+            self.tableView.reloadData()
         }
         
         alert.addTextField { (alertTextField) in
@@ -103,9 +105,17 @@ class ToDoListViewController: UITableViewController {
             textField = alertTextField
         }
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true) {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+            alert.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+        }
     }
     
+    // Used for dismissing alert view when tap outside alert popup
+    @objc func dismissAlertController(){
+        self.dismiss(animated: true, completion: nil)
+    }
+   
     // MARK: - Model Manupulation Methods
     
     
