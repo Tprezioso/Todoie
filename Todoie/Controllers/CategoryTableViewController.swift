@@ -49,7 +49,7 @@ class CategoryTableViewController: UITableViewController {
         
     }
 
-    // MARK: Add New Categories
+    // MARK: - Action methods
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         

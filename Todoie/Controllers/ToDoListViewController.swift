@@ -21,14 +21,11 @@ class ToDoListViewController: UITableViewController {
         }
     }
 
-
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK - Tableview Datascorce Methods
+    // MARK: - Tableview Datascorce Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoItems?.count ?? 1
@@ -116,7 +113,6 @@ class ToDoListViewController: UITableViewController {
     }
    
     // MARK: - Model Manupulation Methods
-    
     
     // LoadItems method has a internal (with) and External (request) params with default (Item.fetchRequest()) params NSPredicate for optional search
     func loadItems() {
