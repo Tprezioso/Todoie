@@ -7,5 +7,5 @@ target 'Todoie' do
 
   # Pods for Todoie
   pod 'RealmSwift'
-
+  pod 'SwipeCellKit'
 end
