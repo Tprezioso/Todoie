@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F0E238B21C457DF0020F6C0 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E238A21C457DF0020F6C0 /* SwipeTableViewController.swift */; };
 		9F0ECA1521B886D20090DB78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0ECA1421B886D20090DB78 /* AppDelegate.swift */; };
 		9F0ECA1721B886D20090DB78 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0ECA1621B886D20090DB78 /* ToDoListViewController.swift */; };
 		9F0ECA1A21B886D20090DB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F0ECA1821B886D20090DB78 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		16EAEE507729034A7462CBF6 /* Pods-Todoie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todoie/Pods-Todoie.release.xcconfig"; sourceTree = "<group>"; };
 		3B41D2B6A536FE9FEAD86A54 /* Pods-Todoie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todoie/Pods-Todoie.debug.xcconfig"; sourceTree = "<group>"; };
+		9F0E238A21C457DF0020F6C0 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		9F0ECA1121B886D20090DB78 /* Todoie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0ECA1421B886D20090DB78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F0ECA1621B886D20090DB78 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				9F0ECA5021BDA8FA0090DB78 /* CategoryTableViewController.swift */,
 				9F0ECA1621B886D20090DB78 /* ToDoListViewController.swift */,
+				9F0E238A21C457DF0020F6C0 /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				9F0ECA1721B886D20090DB78 /* ToDoListViewController.swift in Sources */,
 				9F0ECA1521B886D20090DB78 /* AppDelegate.swift in Sources */,
 				9F0ECA5121BDA8FA0090DB78 /* CategoryTableViewController.swift in Sources */,
+				9F0E238B21C457DF0020F6C0 /* SwipeTableViewController.swift in Sources */,
 				9F2427C121C05BEB00D3D378 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +403,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6JBM5ZNF6C;
 				INFOPLIST_FILE = Todoie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tom.Todoie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -415,7 +422,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6JBM5ZNF6C;
 				INFOPLIST_FILE = Todoie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tom.Todoie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
