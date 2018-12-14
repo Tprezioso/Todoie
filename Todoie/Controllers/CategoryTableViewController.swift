@@ -129,7 +129,7 @@ extension CategoryTableViewController: SwipeTableViewCellDelegate {
                 } catch {
                     print(error)
                 }
-                tableView.reloadData()
+//                tableView.reloadData()
             }
             
         }
@@ -140,5 +140,11 @@ extension CategoryTableViewController: SwipeTableViewCellDelegate {
         
     }
     
-    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        return options
+        
+    }
 }
