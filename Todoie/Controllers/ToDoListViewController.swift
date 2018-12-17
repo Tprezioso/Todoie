@@ -66,7 +66,7 @@ class ToDoListViewController: SwipeTableViewController {
             if let color = UIColor(hexString: (selectedCategory!.color))?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(toDoItems!.count)) {
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
-
+                UITableViewCell.appearance().tintColor = ContrastColorOf(color, returnFlat: true)
             }
             
             // Ternary operator for cell to be checked or not
