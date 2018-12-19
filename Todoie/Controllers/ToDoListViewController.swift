@@ -40,6 +40,7 @@ class ToDoListViewController: SwipeTableViewController {
     }
     
     // MARK: - Nav Bar Setup
+
     func updateNavBar(withHexcode colorHexCode: String) {
         guard let navBar = navigationController?.navigationBar else {fatalError("Nav Controller doesnt exist")}
         guard let navBarColor = UIColor(hexString: colorHexCode) else {fatalError()}
@@ -49,7 +50,6 @@ class ToDoListViewController: SwipeTableViewController {
         navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
 
     }
-    
     
     // MARK: - Tableview Datascorce Methods
     
@@ -81,21 +81,18 @@ class ToDoListViewController: SwipeTableViewController {
     // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if let item = toDoItems?[indexPath.row] {
            
             do {
                 try realm.write {
                     item.done = !item.done
                 }
-
             } catch {
                 print("Error with updating Items \(error)")
             }
             
         }
         tableView.reloadData()
-        
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
@@ -124,7 +121,6 @@ class ToDoListViewController: SwipeTableViewController {
                 }
 
             }
-            
             self.tableView.reloadData()
         }
         
@@ -132,6 +128,7 @@ class ToDoListViewController: SwipeTableViewController {
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
         }
+
         alert.addAction(action)
         present(alert, animated: true) {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
@@ -145,10 +142,8 @@ class ToDoListViewController: SwipeTableViewController {
     }
    
     // MARK: - Model Manupulation Methods
-    
     // LoadItems method has a internal (with) and External (request) params with default (Item.fetchRequest()) params NSPredicate for optional search
     func loadItems() {
-
         toDoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
     }
@@ -164,10 +159,8 @@ class ToDoListViewController: SwipeTableViewController {
             } catch {
                 print(error)
             }
-            //  tableView.reloadData()
         }
     }
-
 
 }
 
@@ -176,7 +169,6 @@ class ToDoListViewController: SwipeTableViewController {
 extension ToDoListViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
         toDoItems = toDoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
 
@@ -185,7 +177,6 @@ extension ToDoListViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
-           
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
                 self.tableView.reloadData()

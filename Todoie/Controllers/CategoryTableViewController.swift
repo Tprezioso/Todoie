@@ -27,12 +27,9 @@ class CategoryTableViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         // get cell from super class swipetableVC
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
-        
         cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color ?? "1D9BF6")
         cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
         
@@ -40,7 +37,6 @@ class CategoryTableViewController: SwipeTableViewController {
     }
     
     // MARK: - Tableview Delegate
-    
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToItems", sender: self)
     }
@@ -51,7 +47,6 @@ class CategoryTableViewController: SwipeTableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedCategory = categories?[indexPath.row]
         }
-        
     }
 
     // MARK: - Action methods
@@ -63,12 +58,9 @@ class CategoryTableViewController: SwipeTableViewController {
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             // What will happen when the user clicks add item
             if textField.text != "" {
-                
                 let newCategory = Category()
                 newCategory.name = textField.text!
                 newCategory.color = UIColor.randomFlat.hexValue()
-                
-                
                 self.saveCategories(category: newCategory)
             }
         }
@@ -83,9 +75,7 @@ class CategoryTableViewController: SwipeTableViewController {
         present(alert, animated: true) {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
             alert.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-
         }
-        
     }
 
     // Used for dismissing alert view when tap outside alert popup
@@ -96,7 +86,6 @@ class CategoryTableViewController: SwipeTableViewController {
 
     // MARK: - Data Manipulation
     func saveCategories(category: Category) {
-        
         do {
             try realm.write {
                     realm.add(category)
@@ -104,14 +93,11 @@ class CategoryTableViewController: SwipeTableViewController {
         } catch {
             print("Error in saving context \(error)")
         }
-        
         self.tableView.reloadData()
-        
     }
     
     // LoadItems method has a internal (with) and External (request) params with default (Item.fetchRequest()) params
     func loadCategories() {
-        
         categories = realm.objects(Category.self)
         tableView.reloadData()
     }
@@ -127,10 +113,8 @@ class CategoryTableViewController: SwipeTableViewController {
             } catch {
                 print(error)
             }
-            //  tableView.reloadData()
         }
     }
     
 }
-
 
