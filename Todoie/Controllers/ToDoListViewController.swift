@@ -16,8 +16,6 @@ class ToDoListViewController: SwipeTableViewController {
     
     let realm = try! Realm()
 
-
-
     @IBOutlet weak var searchBar: UISearchBar!
 
     var selectedCategory : Category? {
@@ -139,8 +137,6 @@ class ToDoListViewController: SwipeTableViewController {
         }
     }
     
-    @IBAction func itemTextFieldPressed(_ sender: Any) {
-    }
     // Used for dismissing alert view when tap outside alert popup
     @objc func dismissAlertController(){
         self.dismiss(animated: true, completion: nil)

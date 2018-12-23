@@ -32,27 +32,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2T3-nK-BPh" id="kt2-6e-3dt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-hO-ELe">
-                                            <rect key="frame" x="16" y="6" width="300" height="30"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="WAU-EH-m38"/>
-                                                <constraint firstAttribute="height" constant="30" id="pAt-1m-cS2"/>
-                                            </constraints>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <action selector="itemTextFieldPressed:" destination="ewU-wk-n20" eventType="editingDidEnd" id="rdL-f4-AxN"/>
-                                            </connections>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Xz6-hO-ELe" secondAttribute="bottom" constant="7.5" id="OcX-fN-Zuf"/>
-                                        <constraint firstItem="Xz6-hO-ELe" firstAttribute="leading" secondItem="kt2-6e-3dt" secondAttribute="leading" constant="16" id="RyI-8K-bff"/>
-                                        <constraint firstItem="Xz6-hO-ELe" firstAttribute="top" secondItem="kt2-6e-3dt" secondAttribute="top" constant="6" id="m2q-iP-Uq0"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
