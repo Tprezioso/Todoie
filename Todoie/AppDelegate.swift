@@ -24,27 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         
-        // first, you declare the content of the notification:
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"
         content.sound = UNNotificationSound.default
         content.body = "Notification Body"
-        
-        // now, you should declare the UNCalendarNotificationTrigger instance,
-        // but before that, you'd need to describe what's the date matching for firing it:
-        
-        // for instance, this means it should get fired every Monday, at 10:30:
-//        var date = DateComponents()
-//        date.weekday = 6
-//        date.hour = 16
-//        date.minute = 28
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 300, repeats: false)
-        
-        // declaring the trigger
-//        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        
-        // creating a request and add it to the notification center
-        let request = UNNotificationRequest(identifier: "notification-identifier", content: content, trigger: calendarTrigger)
+  
+        let date = Date(timeIntervalSinceNow: 3600)
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+
+        let request = UNNotificationRequest(identifier: "notification-identifier", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
     
